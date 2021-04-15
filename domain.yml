@@ -1,0 +1,92 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - concession_application
+  # - action_concession (status check)
+  # - action_timetable_prof
+  # - action_timetable_lect
+  # - action_timetable_time (weekday lec)
+  # - action_result (exam_result)
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye bye! Have a Great day!"
+
+  utter_iamabot:
+  - text: "I'm a Virtual Assistant (Chatbot) made to help you through your student life. :). I'm powered by Rasa."
+
+  utter_ask_coach_class:
+  - text: "Please enter the coach class by which you wish to travel. 1st or 2nd?"
+
+  utter_ask_from_station:
+  - text: "Please enter the station from which you would board the train."
+
+  utter_ask_to_station:
+  - text: "Please enter the destination station. Wadala or Dadar?"
+
+  utter_ask_duration:
+  - text: "Please enter the duration of your pass. 1 month or 3 months?"
+
+  utter_concession_form_submitted:
+  - text: "Thank you, your concession application from {from_station} to {to_station} for {duration} with class {coach_class} has been sumbitted! "
+
+entities:
+  - coach_class
+  - from_station
+  - to_station
+  - duration
+
+forms:
+  concession_form:
+    coach_class:
+      - type: from_entity
+        entity: coach_class
+    from_station:
+      - type: from_entity
+        entity: from_station
+    to_station:
+      - type: from_entity
+        entity: to_station
+    duration:
+      - type: from_entity
+        entity: duration
+
+slots:
+  coach_class:
+    type: categorical
+    values:
+      - first
+      - second
+  from_station:
+    type: text
+  to_station:
+    type: text
+  duration:
+    type: categorical
+    values:
+      - month
+      - quarter
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

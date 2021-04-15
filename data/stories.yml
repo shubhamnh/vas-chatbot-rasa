@@ -1,0 +1,61 @@
+version: "2.0"
+
+# https://rasa.com/docs/rasa/stories
+
+stories:
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: concession application
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: concession_application
+  - action: concession_form
+  - active_loop: concession_form
+  - active_loop: null
+  - action: utter_concession_form_submitted
+
+## hospital search happy path
+# * greet
+#   - utter_how_can_i_help
+# * search_provider{"facility_type":"hospital", "location": "San Francisco"}
+#   - action_facility_search
+#   - slot{"address":"300 Hyde St, San Francisco"}
+# * thanks
+#   - utter_goodbye
+
+## hospital search + location
+# * greet
+#   - utter_how_can_i_help
+# * search_provider{"facility_type":"hospital"}
+#   - utter_ask_location
+# * inform{"location":"San Francisco"}
+#   - action_facility_search
+#   - slot{"address":"300 Hyde St, San Francisco"}
+# * thanks
+#   - utter_goodbye

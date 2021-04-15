@@ -1,0 +1,267 @@
+version: "2.0"
+
+# https://rasa.com/docs/rasa/training-data-format
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - hi vas
+    - hello vas
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+    - good
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: concession_application
+  examples: |
+    - I want to apply for railway concession.
+    - Apply for [second class](coach_class:second) concession from [thane](from_station) to [dadar](to_station) for [3 months](duration:quarter)
+    - Apply for [first class](coach_class:first) concession from [cst](from_station) to [wadala](to_station) for [three months](duration:quarter)
+    - Apply for [first class](coach_class:first) concession from [BHIVPURI](from_station) to [DADAR](to_station) for [1 month](duration:month)
+    - Apply for [second class](coach_class:second) concession from [Sewri](from_station) to [Wadala](to_station) for [one month](duration:month)
+
+- synonym: second class
+  examples: |
+    - 2nd class
+    - second
+    - II
+    - 2
+
+- synonym: first class
+  examples: |
+    - 1st class
+    - first
+    - I
+    - 1
+
+- synonym: month
+  examples: |
+    - 1 month
+    - one month
+    - monthly
+
+- synonym: quarter
+  examples: |
+    - 3 months
+    - three months
+    - quarter
+    - quarterly
+
+- synonym: CST
+  examples: |
+    - cst
+    - csmt
+    - vt
+    - Chhatrapati Shivaji Maharaj Terminus
+
+- intent: inform
+  examples: |
+    - [CST](from_station)
+    - [Marine Lines](from_station)
+    - [thane](from_station)
+    - [Sewri](from_station)
+    - [Dadar](to_station)
+    - [Wadala](to_station)
+    - [Vadala](to_station)
+
+# - intent: action_concession (status check)
+#   examples: |
+#   - what is my railway pass application status?
+#   - concession application status?
+#   - status of my concession application
+#   - status of my railway pass
+#   - status of pass
+
+# - intent: action_timetable
+#   example: |
+#   - what is my timetable
+#   - timetable
+#   - give my timetable
+#   - show my timetable
+#   - class schedule for this week
+
+# - intent: action_timetable_prof
+#   examples:
+#   - when are lectures of professor RVD
+#   - when do i have AKN lecture
+#   - DRP
+#   - PPT lectures
+#   - SB lec
+#   - what is sdw lecture schedule
+#   - when is prof SDW lectures schedule
+
+# - intent: action_timetable_lect
+#   examples:
+#   - when do i have HMI lecture
+#   - timing of PDS lect
+#   - when AI lecture
+#   - when i have DWM lecture
+#   - eccf
+#   - when is OOPM lect
+
+# - intent: action_timetable_time (weekday lec)
+#   examples:
+#   - what are today's lectures?
+#   - which lectures do i have today?
+#   - which professor's lecture do i have today?
+#   - which lecture do i have now?
+#   - what lectures are scheduled today at college?
+#   - which subjects's lectures do i have today?
+#   - today
+#   - tomorrow
+#   - Which lecture is next
+#   - lectures now
+#   - next lecture
+#   - what is my next lecture
+#   - lectures today
+#   - today lectures
+#   - tomorrows lectures
+#   - lecture right now
+#   - right now lecture
+#   - lecture now
+#   - next class
+#   - next lec
+#   - lecture next
+#   - Current lecture
+
+# - intent: action_result (exam_result)
+#   examples:
+#   - My result for current semester
+#   - Result
+#   - My result
+#   - Show my result
+#   - What is my pointer
+#   - what is my result
+#   - current pointer
+#   - my scores
+#   - my marks
+#   - show my result
+#   - pointer
+
+# - intent: bot_challenge
+#   examples: |
+#     - are you a bot?
+#     - are you a human?
+#     - am I talking to a bot?
+#     - am I talking to a human?
+#     - who are you?
+
+# - intent: inform
+#   examples: |
+#     - [Sitka](location)
+#     - [Juneau](location)
+#     - [Virginia](location)
+#     - [Cusseta](location)
+#     - [Chicago](location)
+#     - [Tuscon](location)
+#     - [Columbus](location)
+#     - [San Francisco](location)
+
+# - intent: search_provider
+#   examples: |
+#     - I need a [hospital](facility_type)
+#     - find me a nearby [hospital](facility_type)
+#     - show me [home health agencies](facility_type)
+#     - [hospital](facility_type)
+#     - find me a nearby [hospital](facility_type) in [San Francisco](location)
+#     - I need a [home health agency](facility_type)
+
+# - synonym: credit
+#   examples: |
+#     - credit card account
+#     - credit account
+
+# - regex: account_number
+#   examples: |
+#     - \d{10,12}
+
+# - lookup: banks
+#   examples: |
+#     - JPMC
+#     - Comerica
+#     - Bank of America
+
+# - lookup: professor
+#   examples: |
+#   - Richard Feynman
+#   - Carl Sagan
+#   - Andrew Yang
+#   - Jordan Peterson
+#   - 
