@@ -17,3 +17,18 @@ rules:
   - intent: concession_application
   - action: concession_form
   - active_loop: concession_form
+
+- rule: Respond with custom response with 'timetable' intent
+  steps:
+  - intent: timetable
+  - action: utter_timetable
+
+- rule: Respond with custom response with 'timetable_day' intent and 'tt_day'
+  steps:
+  - intent: timetable_day
+  - action: utter_timetable_day
+
+- rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+  steps:
+  - intent: nlu_fallback
+  - action: utter_please_rephrase

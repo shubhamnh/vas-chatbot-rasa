@@ -1,5 +1,5 @@
 # Pull base image
-FROM rasa/rasa:2.5.0
+FROM rasa/rasa:2.5.2
 
 # Set environment variables
 ENV PYTHONUNBUFFERED 1

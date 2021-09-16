@@ -149,13 +149,47 @@ nlu:
 #   - status of my railway pass
 #   - status of pass
 
-# - intent: action_timetable
-#   example: |
-#   - what is my timetable
-#   - timetable
-#   - give my timetable
-#   - show my timetable
-#   - class schedule for this week
+- intent: timetable
+  examples: |
+    - what is my timetable
+    - time table
+    - class schedule for this week
+    - my lectures
+    - weekly lectures
+
+- intent: timetable_day
+  examples: |
+    - what are [today's](tt_day:today) lectures?
+    - which lectures do i have [tomorrow](tt_day:tomorrow)?
+    - which professors' lecture do i have [today](tt_day:today)?
+    - which lecture do i have [now](tt_day:today)?
+    - what lectures are scheduled for [tomorrow](tt_day:tomorrow) at college?
+    - which subjects' lectures do i have [tomorrow](tt_day:tomorrow)?
+    - Which class is [next](tt_day:today)
+    - lectures [now](tt_day:today)
+    - [next](tt_day:today) lecture
+    - what is my [next](tt_day:today) lecture
+
+- synonym: today
+  examples: |
+    - now
+    - this day
+    - morning
+    - mornin
+    - afternoon
+
+- synonym: tomorrow
+  examples: |
+    - tom
+    - next day
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - who are you?
 
 # - intent: action_timetable_prof
 #   examples:
@@ -214,14 +248,6 @@ nlu:
 #   - my marks
 #   - show my result
 #   - pointer
-
-# - intent: bot_challenge
-#   examples: |
-#     - are you a bot?
-#     - are you a human?
-#     - am I talking to a bot?
-#     - am I talking to a human?
-#     - who are you?
 
 # - intent: inform
 #   examples: |

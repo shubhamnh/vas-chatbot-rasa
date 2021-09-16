@@ -9,6 +9,8 @@ intents:
   - mood_unhappy
   - bot_challenge
   - concession_application
+  - timetable
+  - timetable_day
   # - action_concession (status check)
   # - action_timetable_prof
   # - action_timetable_lect
@@ -48,13 +50,26 @@ responses:
   - text: "Please enter the duration of your pass. 1 month or 3 months?"
 
   utter_concession_form_submitted:
-  - text: "Thank you, your concession application from {from_station} to {to_station} for {duration} with class {coach_class} has been sumbitted! "
+  - text: "Thank you, your concession application from {from_station} to {to_station} for {duration} with class {coach_class} has been sumbitted! (I'm messing around. My maker's too lazy to implement this.)"
+
+  utter_timetable:
+  - custom:
+      intent: "timetable"
+
+  utter_timetable_day:
+  - custom:
+      intent: "timetable_day"
+      day: "{tt_day}"
+
+  utter_please_rephrase:
+  - text: "I'm sorry, I didn't quite understand that. Could you rephrase?"
 
 entities:
   - coach_class
   - from_station
   - to_station
   - duration
+  - tt_day
 
 forms:
   concession_form:
@@ -86,7 +101,13 @@ slots:
     values:
       - month
       - quarter
+  tt_day:
+    type: categorical
+    initial_value: today
+    values:
+      - today
+      - tomorrow
 
 session_config:
   session_expiration_time: 60
-  carry_over_slots_to_new_session: true
+  carry_over_slots_to_new_session: false
