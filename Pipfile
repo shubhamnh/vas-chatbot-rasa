@@ -4,7 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-rasa = "==2.5.2"
+rasa = "==2.8.6"
+tensorflow = "==2.3.4"
 
 [dev-packages]
 
