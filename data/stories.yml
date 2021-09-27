@@ -40,6 +40,25 @@ stories:
   - active_loop: null
   - action: utter_concession_form_submitted
 
+- story: timetable details
+  steps:
+  - intent: timetable
+  - action: utter_timetable
+  - intent: thank
+  - action: utter_welcome
+
+- story: timetable for particular day
+  steps:
+  - intent: timetable_day
+  - action: utter_timetable_day
+  - intent: thank
+  - action: utter_welcome
+
+- story: who are you
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
 ## hospital search happy path
 # * greet
 #   - utter_how_can_i_help

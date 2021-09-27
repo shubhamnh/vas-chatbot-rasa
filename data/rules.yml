@@ -32,3 +32,8 @@ rules:
   steps:
   - intent: nlu_fallback
   - action: utter_please_rephrase
+
+- rule: Respond with 'One is glad to be of service' on 'thank' intent
+  steps:
+  - intent: thank
+  - action: utter_welcome

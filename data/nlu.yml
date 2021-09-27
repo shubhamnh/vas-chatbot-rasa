@@ -17,6 +17,10 @@ nlu:
     - hey dude
     - hi vas
     - hello vas
+    - bonjour
+    - what up
+    - whatsupp
+    - wassup
     - goodmorning
     - goodevening
     - good afternoon
@@ -25,6 +29,9 @@ nlu:
   examples: |
     - good afternoon
     - cu
+    - ciao
+    - farewell
+    - ok bye
     - good by
     - cee you later
     - good night
@@ -38,8 +45,16 @@ nlu:
 - intent: affirm
   examples: |
     - yes
+    - yeah
+    - yea
+    - ya
+    - yup
     - y
     - indeed
+    - ok
+    - nice
+    - alright
+    - cool
     - of course
     - that sounds good
     - correct
@@ -47,6 +62,8 @@ nlu:
 - intent: deny
   examples: |
     - no
+    - nope
+    - nah
     - n
     - never
     - I don't think so
@@ -70,6 +87,7 @@ nlu:
     - so so perfect
     - so good
     - so perfect
+    - happy
     - good
 
 - intent: mood_unhappy
@@ -88,6 +106,30 @@ nlu:
     - extremly sad
     - so saad
     - so sad
+    - bad
+    - feel sad
+    - lonely
+    - my heart is broken
+
+- intent: thank
+  examples: |
+    - Cool. Thanks
+    - Great, thanks
+    - Thank you
+    - Thank you so much
+    - Thanks
+    - cheers
+    - cheers bro
+    - cool thank you
+    - danke
+    - great thanks
+    - ok thanks
+    - perfect thank you
+    - thank u
+    - thnks
+    - thx
+    - yes thanks
+    - thanks f
 
 - intent: concession_application
   examples: |
@@ -168,11 +210,14 @@ nlu:
     - Which class is [next](tt_day:today)
     - lectures [now](tt_day:today)
     - [next](tt_day:today) lecture
+    - [next day](tt_day:tomorrow) lecture
     - what is my [next](tt_day:today) lecture
 
 - synonym: today
   examples: |
     - now
+    - today's
+    - todays
     - this day
     - morning
     - mornin
@@ -182,6 +227,9 @@ nlu:
   examples: |
     - tom
     - next day
+    - tomorrows
+    - tomorrow's
+    - tom's
 
 - intent: bot_challenge
   examples: |
